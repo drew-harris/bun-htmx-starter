@@ -7,8 +7,8 @@ export function Button({ children, ...rest }: ButtonProps) {
     <button
       {...rest}
       class={cx(
-        "bg-purple-800/50 border-purple-500/40 hover:bg-purple-800/70 border p-3 font-bold rounded-lg",
-        rest.class
+        "rounded-lg border border-purple-500/40 bg-purple-800/50 p-3 font-bold hover:bg-purple-800/70",
+        rest.class,
       )}
     >
       {children}

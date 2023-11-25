@@ -31,6 +31,7 @@ const app = new Elysia()
         <div>
           {session ? "Logged in as " + session?.user.username : "Not Logged In"}
         </div>
+        <div hx-get="/hx/signout">Sign out</div>
       </BaseHtml>
     );
   })

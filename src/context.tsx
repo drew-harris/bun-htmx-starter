@@ -11,9 +11,7 @@ const stream = pretty({
   colorize: true,
 });
 
-export const ctx = new Elysia({
-  name: "@app/ctx",
-})
+export const ctx = new Elysia({})
   .decorate("db", db)
   .decorate("config", config)
   .decorate("auth", auth)

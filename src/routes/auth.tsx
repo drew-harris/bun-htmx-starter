@@ -48,4 +48,16 @@ export const authRoutes = new Elysia()
       set.status = 500;
       return <div>Something went wrong</div>;
     }
+  })
+  .get("/hx/signout", async ({ session, set, auth }) => {
+    if (!session) {
+      set.headers["HX-Location"] = "/";
+      return;
+    }
+    await auth.invalidateSession(session.sessionId);
+
+    const sessionCookie = auth.createSessionCookie(null);
+
+    set.headers["Set-Cookie"] = sessionCookie.serialize();
+    set.headers["HX-Location"] = "/";
   });
